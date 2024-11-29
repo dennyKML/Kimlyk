@@ -47,8 +47,8 @@ public class PCBuilder {
     public PC build() {
         if (cpu == null || ram == null || psu == null || os == null)
             throw new IllegalArgumentException("CPU, RAM, PSU, and OS are mandatory components.");
-        if (ssd == null || hdd == null)
-            throw new IllegalArgumentException("SSD and HDD are mandatory components.");
+        if (ssd == null && hdd == null)
+            throw new IllegalArgumentException("The PC must have at least one storage device: SSD or HDD.");
         if (!(os.equalsIgnoreCase("Windows") || os.equalsIgnoreCase("Linux") ||
                 os.equalsIgnoreCase("None")))
             throw new IllegalArgumentException("OS must be either Windows, Linux, or None.");
